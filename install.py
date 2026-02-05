@@ -91,4 +91,8 @@ def xamppDownload():
     print(colorText('green', '[+] Установка XAMPP завершилась успешно'))
     changeComponentsConfig("xamppInstalled", True)
 
-    return isDownloaded
+isXamppExists = checkXamppExists()
+
+# Запуск скачивания Xampp в случае отсутствия
+if not isXamppExists:
+    xamppDownload()

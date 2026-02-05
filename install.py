@@ -58,7 +58,7 @@ print(colorText('cyan', (('=') * 5 + " Установка HackMe Hospital " + ('
 print()
 
 # Десериализация данных components.json для чтения конфигурации
-with open('repos.json', 'r', encoding='utf-8') as f:
+with open('components.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 
 # Изменение параметров components.json

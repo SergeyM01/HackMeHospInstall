@@ -26,24 +26,24 @@ def colorText(color, text):
     return result
 
 # Проверка есть ли requirments
-script_dir = Path(__file__).parent.absolute()
-allScriptNeed = ["requirements.txt"]
-notFilesExists = []
+# script_dir = Path(__file__).parent.absolute()
+# allScriptNeed = ["requirements.txt"]
+# notFilesExists = []
 
-is_all_files_exists = True
+# is_all_files_exists = True
 
-for item in allScriptNeed:
-    if item not in os.listdir(script_dir):
-        print(colorText("yellow", f"[!] Файл {item} отсутствует"))
-        notFilesExists.append(item)
-        is_all_files_exists = False
+# for item in allScriptNeed:
+#     if item not in os.listdir(script_dir):
+#         print(colorText("yellow", f"[!] Файл {item} отсутствует"))
+#         notFilesExists.append(item)
+#         is_all_files_exists = False
 
-if not is_all_files_exists:
-    print()
-    print(colorText("red", "[-] Отстуствуют необходимые файлы."))
-    for item in notFilesExists:
-        print(f"- {item}")
-    sys.exit()
+# if not is_all_files_exists:
+#     print()
+#     print(colorText("red", "[-] Отстуствуют необходимые файлы."))
+#     for item in notFilesExists:
+#         print(f"- {item}")
+#     sys.exit()
 
 # Установка необходимых пакетов
 

@@ -61,7 +61,7 @@ def xamppDownload():
 
     # Скачивание XAMPP
     try:
-        installedResult = run(["curl", "-L", "-o", "xampp-linux-installer.run https://sourceforge.net/projects/xampp/files/XAMPP%20Linux/8.2.12/xampp-linux-x64-8.2.12-0-installer.run/download"])
+        installedResult = run(["curl", "-L", "-o", "xampp-linux-installer.run", "https://sourceforge.net/projects/xampp/files/XAMPP%20Linux/8.2.12/xampp-linux-x64-8.2.12-0-installer.run/download"])
     except Exception as XamppInstalledError:
         print(colorText("red", f"[-] Во время установки XAMPP произошла ошибка:{XamppInstalledError}"))
         errorMessage() # Выход в случае неудачного скачивания

@@ -25,31 +25,11 @@ def colorText(color, text):
 
     return result
 
-# Проверка есть ли requirments
-# script_dir = Path(__file__).parent.absolute()
-# allScriptNeed = ["requirements.txt"]
-# notFilesExists = []
-
-# is_all_files_exists = True
-
-# for item in allScriptNeed:
-#     if item not in os.listdir(script_dir):
-#         print(colorText("yellow", f"[!] Файл {item} отсутствует"))
-#         notFilesExists.append(item)
-#         is_all_files_exists = False
-
-# if not is_all_files_exists:
-#     print()
-#     print(colorText("red", "[-] Отстуствуют необходимые файлы."))
-#     for item in notFilesExists:
-#         print(f"- {item}")
-#     sys.exit()
-
 # Установка необходимых пакетов
 
 # Обновление доступных пакетов
 try:
-    print(colorText("blue", "[~] Обновление информации о возможности обновления доступных пакетов"))
+    print(colorText("cyan", "[~] Обновление информации о возможности обновления доступных пакетов"))
     result = run(["sudo", "apt", "update"])
 except Exception as PackagesUpdateError:
     print(colorText("yellow", f"[-] Обновление списка доступных пакетов и их версий завершилось с ошибкой:\n{PackagesUpdateError}"))
@@ -65,10 +45,10 @@ packages = [
 # Установка пакетов из списка
 for package in packages:
     try:
-        print(colorText("blue", f"[~] Установка пакета: {package}"))
+        print(colorText("cyan", f"[~] Установка пакета: {package}"))
         packageInstallResult = run(["sudo" ,"apt", "install", "-y", package], capture_output=True)
     except Exception as PackageInstallError:
         print(colorText("red", f"[-] Установка пакета {package} завершилась с ошибкой:\n{PackageInstallError}"))
         sys.exit()
 
-    print(f"[+] Пакет {package} успешно был установлен")
+    print(colorText("green", f"[+] Пакет {package} успешно был установлен"))

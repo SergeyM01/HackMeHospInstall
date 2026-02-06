@@ -1,13 +1,12 @@
 import os
 from subprocess import run
-from colorama import Fore, Style
 import sys
 import json
 from getpass import getpass
 
 # Сообщение при котором не возможна дальнейшая работа скрипта с выходом 
 def errorMessage():
-    print(Fore.RED + "[-] Дальнейшая работа скрипта не может быть возможной" + Style.RESET_ALL)
+    print(colorText("red", "[-] Дальнейшая работа скрипта не может быть возможной"))
     sys.exit()
 
 # Центрирование текста
@@ -16,7 +15,7 @@ def center_text(text):
         # Получаем размер терминала
         terminal_width = os.get_terminal_size().columns
         # Убираем цветовые коды для подсчета длины текста
-        clean_text = text.replace(Fore.GREEN, '').replace(Fore.RED, '').replace(Style.RESET_ALL, '')
+        clean_text = text.replace('').replace('').replace('')
         text_length = len(clean_text)
         
         # Вычисляем отступы
@@ -35,16 +34,18 @@ def colorText(color, text, isCenter=False):
     color_upper = str(color).upper()
     result = None
     if color_upper in colors:
+         # Сброс стиля
+        RESET = '\033[0m'
         color_map = {
-            'GREEN': Fore.GREEN,
-            'RED': Fore.RED,
-            'YELLOW' : Fore.YELLOW,
-            'BLUE': Fore.BLUE,
-            'MAGENTA': Fore.MAGENTA,
-            'CYAN': Fore.CYAN,
-            'WHITE': Fore.WHITE
+            'GREEN': '\033[32m',
+            'RED': '\033[31m',
+            'YELLOW' : '\033[33m',
+            'BLUE': '\033[34m',
+            'MAGENTA': '\033[35m',
+            'CYAN': '\033[36m',
+            'WHITE': '\033[37m'
         }
-        result = color_map[color_upper] + text + Style.RESET_ALL
+        result = color_map[color_upper] + text + RESET
     else:
         result = text
 
@@ -95,3 +96,5 @@ isXamppExists = checkXamppExists()
 # Запуск скачивания Xampp в случае отсутствия
 if not isXamppExists:
     xamppDownload()
+
+print()

@@ -42,7 +42,11 @@ with open('components.json', 'r', encoding='utf-8') as f:
 
 # Изменение параметров components.json
 def changeComponentsConfig(itemName, newValue):
+    global data
     data[itemName] = newValue
+    with open('components.json', 'w', encoding="utf-8") as f:
+        json.dump(data, f, indent=4, ensure_ascii=False)
+    print(colorText("green", f"[+] Конфиг обновлен: {itemName}:{newValue}"))
 
 # Проверка Установлен ли Xampp
 def checkXamppExists():
@@ -57,16 +61,16 @@ def checkXamppExists():
     return isExists
 
 def xamppDownload():
-    print(colorText("blue", "[~] Скачивание XAMPP"))
-
+    print(colorText("cyan", "[~] Скачивание XAMPP"))
+    print()
     # Скачивание XAMPP
     try:
-        installedResult = run(["curl", "-L", "-o", "xampp-linux-installer.run", "https://sourceforge.net/projects/xampp/files/XAMPP%20Linux/8.2.12/xampp-linux-x64-8.2.12-0-installer.run/download"])
+        run(["curl", "-L", "-o", "xampp-linux-installer.run", "https://sourceforge.net/projects/xampp/files/XAMPP%20Linux/8.2.12/xampp-linux-x64-8.2.12-0-installer.run/download"])
     except Exception as XamppInstalledError:
         print(colorText("red", f"[-] Во время установки XAMPP произошла ошибка:{XamppInstalledError}"))
         errorMessage() # Выход в случае неудачного скачивания
 
-    print(colorText('green', '[+] Установка XAMPP завершилась успешно'))
+    print(colorText('green', '[+] Скачивание XAMPP завершилась успешно'))
     changeComponentsConfig("xamppInstalled", True)
 
 isXamppExists = checkXamppExists()

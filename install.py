@@ -1,17 +1,17 @@
 import os
 import sys
 from subprocess import run
+from pathlib import Path
 
 # Проверка есть ли requirments
-dirPath = "/".join(str(__file__).split("/")[:-1])
-all_items = os.listdir(dirPath)
+script_dir = Path(__file__).parent.absolute()
 allScriptNeed = ["requirments.txt"]
 
 is_all_files_exists = True
 
 for item in allScriptNeed:
-    if item not in os.listdir(all_items):
-        print(f"[-] Файл {item} отсутствует")
+    if item not in os.listdir(script_dir):
+        print(f"[!] Файл {item} отсутствует")
         is_all_files_exists = False
 
 if not is_all_files_exists:
@@ -27,7 +27,7 @@ try:
     if result.stderr == 0:
         print("[+] Обновлен список доступных пакетов и их версий")
 except Exception as PackagesUpdateError:
-    print(f"[-] Обновление списка доступных пакетов и их версий завершилось с ошибкой:\n{PackagesUpdateError}")
+    print(f"[-] Обновление списка доступных пакетов и их версий завершилось с ошибкой:\n{PackagesUpdateError}")ф
 
 # Необходимые пакеты для корректной работы системы
 packages = [
@@ -77,3 +77,4 @@ except Exception as reqInstallError:
 # Вывод имеющихся библиотек
 currentPythonLibrary = run(["pip", "list"], capture_output=True, text=True)
 print(currentPythonLibrary.stdout)
+

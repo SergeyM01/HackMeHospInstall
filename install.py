@@ -61,7 +61,7 @@ try:
     print("[~] Активация виртуального окружения")
     run(["source", "venv/bin/activate"])
 except Exception as venvActivationError:
-    print(f"[-] При активации виртуального окружения произошла ошибка:\n{venvCreationError}")
+    print(f"[-] При активации виртуального окружения произошла ошибка:\n{venvActivationError}")
     sys.exit()
 
 # Установка зависимостей

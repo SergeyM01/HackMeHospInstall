@@ -1,0 +1,37 @@
+1 Установите пакет git
+
+apt install git -y
+
+2 Клонируйте репозиторий
+
+git clone https://github.com/SergeyM01/HackMeHospInstall.git
+
+3 Добавьте полные права для директории HackMeHospInstall
+
+chmod 777 HackMeHospInstall
+
+4 Перейдите в директорию HackMeHospInstall
+
+cd HackMeHospInstall/
+
+5  Добавьте права на исполнение скриптам install.py, main.py
+
+chmod +x install.py; chmod +x main.py
+
+6 Выполните запуск скрипта install.py НЕ ОТ ИМЕНИ ROOT! 
+
+python3 install.py
+
+7 После завершения работы скрипта перейдите в виртуальное окуржение при помощи команды 
+
+source venv/bin/activate
+
+8 Выполните команду для установки необходимых бьибилотек python для корректной работы скрипта main.py
+
+pip install -r requirements.txt
+
+По завершению команды должны скачаться бибилотеки, проверить наличие необходимых бибилотек можно командой:
+
+pip list
+
+9 Выйдите из виртуального окружения при помощи команды exit

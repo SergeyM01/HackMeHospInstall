@@ -39,11 +39,11 @@ packages = [
 for package in packages:
     try:
         print(f"[~] Установка пакета: {package}")
-        packageInstallResult = run(["apt", "install", package], capture_output=True)
+        packageInstallResult = run(["sudo" ,"apt", "install", "-y", package], capture_output=True)
     except Exception as PackageInstallError:
         print(f"[-] Установка пакета {package} завершилась с ошибкой:\n{PackageInstallError}")
 
-print(f"[+] Пакет {package} успешно был установлен")
+    print(f"[+] Пакет {package} успешно был установлен")
 
 # Установка необходимых библиотек из requirments.txt
 

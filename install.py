@@ -5,7 +5,7 @@ from pathlib import Path
 
 # Проверка есть ли requirments
 script_dir = Path(__file__).parent.absolute()
-allScriptNeed = ["requirments.txt"]
+allScriptNeed = ["requirements.txt"]
 
 is_all_files_exists = True
 

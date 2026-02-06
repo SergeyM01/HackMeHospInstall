@@ -9,27 +9,8 @@ def errorMessage():
     print(colorText("red", "[-] Дальнейшая работа скрипта не может быть возможной"))
     sys.exit()
 
-# Центрирование текста
-def center_text(text):
-    try:
-        # Получаем размер терминала
-        terminal_width = os.get_terminal_size().columns
-        # Убираем цветовые коды для подсчета длины текста
-        clean_text = text.replace('').replace('').replace('')
-        text_length = len(clean_text)
-        
-        # Вычисляем отступы
-        if text_length >= terminal_width:
-            return text  # Если текст длиннее терминала, не центрируем
-        
-        padding = (terminal_width - text_length) // 2
-        return " " * padding + text
-    except (OSError, AttributeError):
-        # Если не удалось получить размер терминала
-        return text
-
 # Окрашивание текста c центрированием
-def colorText(color, text, isCenter=False):
+def colorText(color, text):
     colors = ['GREEN', 'RED', 'YELLOW', 'BLUE', 'MAGENTA', 'CYAN', 'WHITE']
     color_upper = str(color).upper()
     result = None
@@ -49,13 +30,10 @@ def colorText(color, text, isCenter=False):
     else:
         result = text
 
-    if isCenter:
-        return center_text(result)
-    else:
-        return result
+    return result
     
 print()
-print(colorText('cyan', (('=') * 5 + " Установка HackMe Hospital " + ('=') * 5), True))
+print(colorText('cyan', (('=') * 5 + " Установка HackMe Hospital " + ('=') * 5)))
 print()
 
 # Десериализация данных components.json для чтения конфигурации

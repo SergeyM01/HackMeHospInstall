@@ -10,7 +10,7 @@ allScriptNeed = ["requirments.txt"]
 is_all_files_exists = True
 
 for item in allScriptNeed:
-    if item not in os.listDir(all_items):
+    if item not in os.listdir(all_items):
         print(f"[-] Файл {item} отсутствует")
         is_all_files_exists = False
 

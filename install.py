@@ -27,7 +27,7 @@ try:
     if result.stderr == 0:
         print("[+] Обновлен список доступных пакетов и их версий")
 except Exception as PackagesUpdateError:
-    print(f"[-] Обновление списка доступных пакетов и их версий завершилось с ошибкой:\n{PackagesUpdateError}")ф
+    print(f"[-] Обновление списка доступных пакетов и их версий завершилось с ошибкой:\n{PackagesUpdateError}")
 
 # Необходимые пакеты для корректной работы системы
 packages = [

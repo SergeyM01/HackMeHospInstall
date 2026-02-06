@@ -4,7 +4,7 @@ from subprocess import run
 
 # Проверка есть ли requirments
 dirPath = "/".join(str(__file__).split("/")[:-1])
-all_items = os.listdir(str(__file__).split())
+all_items = os.listdir(dirPath)
 allScriptNeed = ["requirments.txt"]
 
 is_all_files_exists = True

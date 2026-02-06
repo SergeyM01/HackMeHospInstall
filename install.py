@@ -3,7 +3,8 @@ import sys
 from subprocess import run
 
 # Проверка есть ли requirments
-all_items = os.listdir(__file__)
+dirPath = "/".join(str(__file__).split("/")[:-1])
+all_items = os.listdir(str(__file__).split())
 allScriptNeed = ["requirments.txt"]
 
 is_all_files_exists = True

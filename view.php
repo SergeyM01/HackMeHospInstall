@@ -3,16 +3,15 @@ session_start();
 $message = '';
 
 // Проверяем, авторизован ли пользователь
-if (!isset($_SESSION['patient_id'])) {
+if (!isset($_SESSION['id'])) {
     die("Access denied. Please login first.");
 }
 
 if (isset($_GET['patient_id'])) { 
     $requestedPatientId = $_GET['patient_id']; 
     
-    // ВАЖНО: Проверяем, совпадает ли запрошенный ID с ID текущего пользователя
     // Это предотвращает просмотр чужих записей
-    if ($requestedPatientId != $_SESSION['patient_id']) {
+    if ($requestedPatientId != $_SESSION['id']) {
         die("Access denied. You can only view your own records.");
     }
     
